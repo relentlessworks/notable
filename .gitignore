@@ -1,0 +1,4 @@
+notable
+notable.json
+*.exe
+dist/
