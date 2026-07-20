@@ -449,12 +449,12 @@ func (s *Server) handleUpdateNote(w http.ResponseWriter, r *http.Request, worksp
 	body := r.FormValue("body")
 	tagsStr := r.FormValue("tags")
 	var tags []string
-	if tagsStr != "" || r.FormValue("tags") != "" {
+	if tagsStr != "" {
 		tags = parseTags(tagsStr)
 	}
 
 	// Check if at least one field is being updated
-	if title == "" && body == "" && tags == nil && r.FormValue("tags") == "" {
+	if title == "" && body == "" && tags == nil {
 		s.errorResponse(w, r, http.StatusBadRequest, "no fields to update",
 			"PATCH with title=<new-title>&body=<new-body>&tags=<new-tags> (any field can be omitted)")
 		return
