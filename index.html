@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notable — Agentic-First Notes & Knowledge Base</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --fg: #e6edf3;
+            --accent: #d2a8ff;
+            --accent2: #79c0ff;
+            --card: #161b22;
+            --border: #30363d;
+            --code-bg: #1c2128;
+            --muted: #8b949e;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--bg);
+            color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+        }
+        a { color: var(--accent2); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--accent); letter-spacing: -0.5px; }
+        .tagline { color: var(--muted); font-size: 0.9rem; }
+        .hero { padding: 80px 0 60px; text-align: center; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 16px; letter-spacing: -1px; }
+        .hero h1 span { color: var(--accent); }
+        .hero p { font-size: 1.2rem; color: var(--muted); max-width: 600px; margin: 0 auto 32px; }
+        .badges { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+        .badge { background: var(--card); border: 1px solid var(--border); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; color: var(--muted); }
+        .cta { display: flex; gap: 16px; justify-content: center; }
+        .btn { padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: all 0.2s; }
+        .btn-primary { background: var(--accent); color: var(--bg); }
+        .btn-primary:hover { background: #bc8cff; text-decoration: none; }
+        .btn-secondary { background: var(--card); border: 1px solid var(--border); color: var(--fg); }
+        .btn-secondary:hover { border-color: var(--accent); text-decoration: none; }
+        section { padding: 60px 0; }
+        section h2 { font-size: 1.8rem; margin-bottom: 24px; text-align: center; }
+        .principles { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .principle { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .principle .icon { font-size: 1.8rem; margin-bottom: 12px; }
+        .principle h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .principle p { color: var(--muted); font-size: 0.9rem; }
+        .code-block {
+            background: var(--code-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            overflow-x: auto;
+            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', Consolas, monospace;
+            font-size: 0.875rem;
+            line-height: 1.7;
+        }
+        .code-block .comment { color: var(--muted); }
+        .code-block .prompt { color: var(--accent2); }
+        .code-block .output { color: #7ee787; }
+        .api-table { width: 100%; border-collapse: collapse; }
+        .api-table th, .api-table td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--border); }
+        .api-table th { color: var(--accent); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .api-table td { font-size: 0.9rem; }
+        .api-table code { background: var(--code-bg); padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; color: var(--accent2); }
+        .config-table { width: 100%; border-collapse: collapse; }
+        .config-table th, .config-table td { padding: 10px 16px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+        .config-table th { color: var(--accent); }
+        .config-table code { background: var(--code-bg); padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; color: var(--accent2); }
+        footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--muted); font-size: 0.85rem; }
+        footer a { color: var(--accent2); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">NOTABLE</div>
+            <a href="https://github.com/relentlessworks/notable" class="tagline">View on GitHub →</a>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>Agentic-First <span>Notes & Knowledge Base</span></h1>
+            <p>The agent IS the interface. No UI, no SDK. Create, search, and manage notes over plain HTTP.</p>
+            <div class="badges">
+                <span class="badge">Go</span>
+                <span class="badge">Single binary</span>
+                <span class="badge">Zero config</span>
+                <span class="badge">Multi-tenant</span>
+            </div>
+            <div class="cta">
+                <a href="https://github.com/relentlessworks/notable" class="btn btn-primary">Get Started</a>
+                <a href="#quick-start" class="btn btn-secondary">Quick Start</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="quick-start">
+        <div class="container">
+            <h2>Quick Start</h2>
+            <div class="code-block">
+<span class="comment"># Build the single static binary</span>
+make build
+
+<span class="comment"># Run with zero config — starts on :8080</span>
+./notable
+
+<span class="comment"># Create a note</span>
+<span class="prompt">curl</span> -X POST http://localhost:8080/api/notes \
+  -H <span class="output">"Authorization: Bearer &lt;token&gt;"</span> \
+  -d <span class="output">"title=Meeting Notes&amp;body=Discussed API design&amp;tags=work,meeting"</span>
+
+<span class="comment"># Response (plain text, one line per record)</span>
+<span class="output">handle=note_a1b2c title=Meeting Notes tags=work,meeting updated=2024-01-01T00:00:00Z</span>
+
+<span class="comment"># Search notes</span>
+<span class="prompt">curl</span> <span class="output">'http://localhost:8080/api/notes/search?q=API'</span> \
+  -H <span class="output">"Authorization: Bearer &lt;token&gt;"</span>
+
+<span class="comment"># → handle=note_a1b2c title=Meeting Notes tags=work,meeting updated=...</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Principles</h2>
+            <div class="principles">
+                <div class="principle">
+                    <div class="icon">🤖</div>
+                    <h3>Agent IS the Interface</h3>
+                    <p>No UI, no SDK. The AI agent is the user. The API is the product.</p>
+                </div>
+                <div class="principle">
+                    <div class="icon">📝</div>
+                    <h3>Plain Text by Default</h3>
+                    <p>One labeled, grepable line per record. Token-cheap, survives context truncation. JSON on demand.</p>
+                </div>
+                <div class="principle">
+                    <div class="icon">💡</div>
+                    <h3>Instructive Errors</h3>
+                    <p>Every 4xx includes a hint telling the agent what to do next. Self-correcting without a schema.</p>
+                </div>
+                <div class="principle">
+                    <div class="icon">📖</div>
+                    <h3>Self-Documenting</h3>
+                    <p>GET /help returns a one-page operating manual the agent loads at runtime.</p>
+                </div>
+                <div class="principle">
+                    <div class="icon">🔐</div>
+                    <h3>Simple Auth</h3>
+                    <p>OTP via email → long-lived bearer token. No complex OAuth flows.</p>
+                </div>
+                <div class="principle">
+                    <div class="icon">📦</div>
+                    <h3>Single Static Binary</h3>
+                    <p>Go, zero external dependencies, CGO_ENABLED=0. Deploys as one file.</p>
+                </div>
+                <div class="principle">
+                    <div class="icon">⚙️</div>
+                    <h3>Zero Config Defaults</h3>
+                    <p>Runs out of the box. Config layered: defaults &lt; env &lt; flags.</p>
+                </div>
+                <div class="principle">
+                    <div class="icon">🏢</div>
+                    <h3>Multi-Tenant Ready</h3>
+                    <p>Workspaces isolate notes per tenant. Plans, limits, audit logs built in.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>API Reference</h2>
+            <h3 style="color: var(--accent); margin-bottom: 16px; font-size: 1.1rem;">Authentication</h3>
+            <div class="code-block">
+POST /auth/request   email=&lt;email&gt;&amp;workspace=&lt;handle&gt;  → OTP code
+POST /auth/verify     email=&lt;email&gt;&amp;code=&lt;code&gt;          → Bearer token
+            </div>
+
+            <h3 style="color: var(--accent); margin: 32px 0 16px; font-size: 1.1rem;">Notes (requires Bearer token)</h3>
+            <table class="api-table">
+                <thead>
+                    <tr><th>Method</th><th>Path</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>POST</code></td><td><code>/api/notes</code></td><td>Create a note</td></tr>
+                    <tr><td><code>GET</code></td><td><code>/api/notes</code></td><td>List notes (optional ?tag=)</td></tr>
+                    <tr><td><code>GET</code></td><td><code>/api/notes/&lt;handle&gt;</code></td><td>Get full note with body</td></tr>
+                    <tr><td><code>PATCH</code></td><td><code>/api/notes/&lt;handle&gt;</code></td><td>Update a note</td></tr>
+                    <tr><td><code>DELETE</code></td><td><code>/api/notes/&lt;handle&gt;</code></td><td>Delete a note</td></tr>
+                    <tr><td><code>GET</code></td><td><code>/api/notes/search?q=</code></td><td>Search notes by content</td></tr>
+                    <tr><td><code>GET</code></td><td><code>/api/workspace</code></td><td>Workspace info</td></tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: var(--accent); margin: 32px 0 16px; font-size: 1.1rem;">Response Formats</h3>
+            <div class="code-block">
+<span class="comment"># Plain text (default)</span>
+handle=note_a1b2c title=Meeting Notes tags=work,meeting updated=2024-01-01T00:00:00Z
+
+<span class="comment"># JSON (add Accept: application/json or ?format=json)</span>
+{"handle":"note_a1b2c","title":"Meeting Notes","body":"Discussed API design","tags":["work","meeting"]}
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Configuration</h2>
+            <table class="config-table">
+                <thead>
+                    <tr><th>Flag</th><th>Env Var</th><th>Default</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>-addr</code></td><td><code>NOTABLE_ADDR</code></td><td>:8080</td><td>Listen address</td></tr>
+                    <tr><td><code>-db</code></td><td><code>NOTABLE_DB</code></td><td>notable.json</td><td>Data file path</td></tr>
+                    <tr><td><code>-secret</code></td><td><code>NOTABLE_SECRET</code></td><td>random</td><td>Token signing secret</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Build</h2>
+            <div class="code-block">
+make build    <span class="comment"># CGO_ENABLED=0, single static binary</span>
+make test     <span class="comment"># go test ./...</span>
+make vet      <span class="comment"># go vet ./...</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <a href="https://github.com/relentlessworks/notable">Notable</a> ·
+            <a href="https://github.com/relentlessworks">relentlessworks</a> ·
+            MIT License<br>
+            Agentic-first, always.
+        </div>
+    </footer>
+</body>
+</html>
